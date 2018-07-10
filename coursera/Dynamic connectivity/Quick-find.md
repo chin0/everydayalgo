@@ -1,7 +1,6 @@
 # Quick-find
 
 - 동적 연결성 문제를 해결하는 첫번째 방법.
-- eagar algorithm이라고도 불림.
 
 자료구조
 
@@ -65,7 +64,7 @@ N개의 객체에 대한 총 N개의 Union명령을 처리하려면 N^2번만큼
 ### Quadratic algorithm의 문제점
 
 - Quadratic algorithm?
-  - 실행시간이 N^2의 형태인 알고맂,ㅁ
+  - 실행시간이 N^2의 형태인 알고리즘
 
 현재의 대략적인 컴퓨터
 

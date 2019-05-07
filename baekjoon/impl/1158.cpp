@@ -21,5 +21,4 @@ int main(void) {
         index %= data.size();
     }
     printf("%d>\n", data[0]);
-
 }

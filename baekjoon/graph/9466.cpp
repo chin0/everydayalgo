@@ -1,5 +1,6 @@
 //dfs로 사이클 체크. isFinished라는 배열을 하나 더 도입하는 아이디어에 주목하자.
 //http://blog.naver.com/PostView.nhn?blogId=gunwooyeon&logNo=220942236105&parentCategoryNo=&categoryNo=9&viewDate=&isShowPopularPosts=true&from=search
+//https://www.crocus.co.kr/709 이해하기
 #include <stdio.h>
 #include <algorithm>
 #include <vector>

@@ -1,10 +1,13 @@
 #include <iostream>
 #include <vector>
+#include <queue>
+
 using namespace std;
 
 struct union_find {
     vector<int> parent, rank;
-    union_find(int n) {
+
+   union_find(int n) {
         for(int i = 0; i < n; i++) {
             parent.push_back(i);
             rank.push_back(0);
@@ -23,7 +26,7 @@ struct union_find {
 
         if(xroot == yroot)
             return;
-        
+
         if(rank[xroot] > rank[yroot])
             parent[yroot] = xroot;
         else if(rank[yroot] > rank[xroot])
@@ -38,6 +41,7 @@ struct union_find {
 int main(void) {
     int n,m,x,y,op;
     cin >> n >> m;
+
     union_find uf(n);
     for(int i = 0; i < m; i++) {
         cin >> op >> x >> y;
@@ -51,7 +55,6 @@ int main(void) {
         }
     }
 }
-            
 
 
 

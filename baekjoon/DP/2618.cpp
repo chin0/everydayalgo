@@ -20,6 +20,7 @@ place events[1001];
 int dp[1001][1001];
 int back[1001];
 
+//바텀업이라서 결과적으로 dp[0][0]에 최종값이 담김.
 int search(int c1, int c2)
 {
     if(c1 == w || c2 == w) return 0;

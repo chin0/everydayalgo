@@ -2,18 +2,7 @@
 
 use std::io::{BufWriter, stdin, stdout, Write};
 
-#[derive(Default)]
-struct Scanner {
-    buffer: Vec<String>
-}
 
-impl Scanner {
-    fn next(&mut self) -> impl std::str::FromStr {
-        loop {
-            
-        }
-    }
-}
 struct Matcher<'a, C: Eq> {
     pattern: &'a [C],
     fail: Vec<usize>,
@@ -61,5 +50,17 @@ impl<'a, C:Eq> Matcher<'a, C> {
     }
 }
 fn main() {
+    let mut text = String::new();
+    let mut pattern = String::new();
 
+    stdin().read_line(&mut text).expect("failed to read.");
+    stdin().read_line(&mut pattern).expect("failed to read.");
+    let text = &text[..text.len()-1];
+    let pattern = &pattern[..pattern.len()-1];
+    let matcher = Matcher::new(pattern.as_bytes());
+    let result = matcher.kmp_match(text.bytes());
+    println!("{}",result.len());
+    for i in result {
+        print!("{} ", i+1);
+    }
 }

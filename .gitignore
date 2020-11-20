@@ -2,3 +2,5 @@ a.out
 a.out.dSYM
 .vscode
 .DS_Store
+.idea/*
+**/target/*

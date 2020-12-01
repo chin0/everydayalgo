@@ -29,29 +29,32 @@ impl<'a> Parser for SplitWhitespace<'a> {
     }
 }
 
-fn bfs(start: u32, n: u32, dest: &Vec<u32>) -> u32{
-    let mut depth = 0;
+//multi start bfs!
+fn bfs(start: &Vec<u32>, n: u32) -> u32{
+    let mut last = 0;
     let mut queue = VecDeque::new();
 
-    queue.push_back((start, 0));
+    start.iter().for_each(|x| {
+        queue.push_back((*x, 0));
+    });
 
+    let mut visited = vec![false; n as usize +1];
     while let Some((b, d)) = queue.pop_front() {
+        last = d;
         let mut cur = 1;
-        //println!("{}", d);
-        if dest.contains(&b) {
-            depth = d;
-            break;
-        }
         while cur <= n {
             let flipped = b ^ cur;
-            if flipped <= n {
+            if flipped <= n  && !visited[flipped as usize]{
+                //println!("{} {} {}", flipped as usize, cur, visited[flipped as usize]);
+                visited[flipped as usize] = true;
                 queue.push_back((flipped,d+1));
             }
             cur = cur << 1;
         }
     }
-    depth
+    last
 }
+
 fn main() {
     let mut s = String::new();
 
@@ -63,12 +66,5 @@ fn main() {
     let m : u32 = iter.read();
 
     let v : Vec<u32> = iter.read_collect();
-    let mut ans = 0;
-    for i in 1..(n+1) {
-        if v.contains(&i) {
-            continue;
-        }
-        ans = max(ans, bfs(i,n, &v));
-    }
-    println!("{}", ans);
+    println!("{}",bfs(&v,n));
 }

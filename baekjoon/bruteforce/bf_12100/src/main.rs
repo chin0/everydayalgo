@@ -40,10 +40,10 @@ fn merge_line(v: &mut Vec<Vec<u16>>, idx: usize, d: direction){
             copy = v.iter().rev().map(|x| x[idx]).collect();
         },
         direction::LEFT => {
-            copy = v[i].iter().map(|x| *x).collect();
+            copy = v[idx].iter().map(|x| *x).collect();
         },
         direction::RIGHT => {
-            copy = v[i].iter().rev().map(|x| * x).collect();
+            copy = v[idx].iter().rev().map(|x| * x).collect();
         }
     }
     while i < copy.len() && j < copy.len() {

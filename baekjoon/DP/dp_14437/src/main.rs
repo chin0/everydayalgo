@@ -48,7 +48,6 @@ fn main() {
         dp[1][i] = 1;
     }
 
-    //dp[i][k] = dp[i][k-1] + dp[i-1][k]
     //그리고 i >= 26이면 dp[i][k] = dp[i][k-1] + dp[i-1][k] - dp[i-25][k-1]
     for i in 2..(k+1) {
         for j in 1..(n+1) {
